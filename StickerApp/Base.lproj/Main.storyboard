@@ -38,16 +38,6 @@
                                     <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="an8-KS-3jr"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94W-Qg-lJk">
-                                <rect key="frame" x="323" y="265" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="S8W-7M-M38"/>
-                                    <constraint firstAttribute="width" constant="30" id="Z8P-Y6-Bjc"/>
-                                </constraints>
-                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="clear" catalog="system"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -75,7 +65,6 @@
                     <connections>
                         <outlet property="addButton" destination="h3Z-sz-vjy" id="SDu-ng-7K7"/>
                         <outlet property="mainImageView" destination="2jr-XH-oCC" id="EyZ-ni-PGe"/>
-                        <outlet property="removeButton" destination="94W-Qg-lJk" id="Kvc-nm-wIv"/>
                         <outlet property="saveButton" destination="U0S-JS-3cd" id="tKg-R7-DUn"/>
                         <outlet property="takePhotoButton" destination="gbj-ml-bK0" id="wwB-0a-SxA"/>
                     </connections>
@@ -105,7 +94,6 @@
     </scenes>
     <resources>
         <image name="cameraImage" width="128" height="128"/>
-        <image name="clear" catalog="system" width="64" height="56"/>
         <image name="photo" catalog="system" width="64" height="46"/>
     </resources>
 </document>

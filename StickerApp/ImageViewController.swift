@@ -13,7 +13,6 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var takePhotoButton: UIButton!
     
     let cameraPicker = UIImagePickerController()
@@ -27,7 +26,29 @@ class ImageViewController: UIViewController {
         saveButton.isEnabled = false
         //adding camera picker delegate
         cameraPicker.delegate = self
+        addTapGestureForMainImageView()
+        
     }
+    
+    func addTapGestureForMainImageView(){
+        let tap = UITapGestureRecognizer(target: self, action:#selector(handleTap(sender:)))
+        mainImageView.isUserInteractionEnabled = true
+        mainImageView.addGestureRecognizer(tap)
+    }
+    @objc func handleTap(sender:UITapGestureRecognizer){
+        let allviews = self.view.subviews
+        print(allviews)
+        for view in allviews{
+            if view is UIImageView{
+                for button in view.subviews{
+                    if button is UIButton{
+                        button.isHidden = true
+                    }
+                }
+            }
+        }
+    }
+    
     
     //MARK:- IBActions
     @IBAction func addSticker(_ sender: Any) {
@@ -61,7 +82,7 @@ class ImageViewController: UIViewController {
     @objc func removeEmoji(sender:UIButton){
         sender.superview?.removeFromSuperview()
     }
-   
+    
     
     @IBAction func takePhoto(_ sender: Any) {
         let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .actionSheet)
@@ -246,4 +267,5 @@ extension ImageViewController:UIGestureRecognizerDelegate{
             //When lognpress is finish
         }
     }
+    
 }
