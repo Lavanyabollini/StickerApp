@@ -44,15 +44,15 @@ class ImageViewController: UIViewController {
         imageView.center = mainImageView.center
         imageView.isUserInteractionEnabled = true
         imageView.tag = Int(randomNumber)
-        imageView.addSubview(addRemoveButton())
+        imageView.addSubview(addRemoveButton(imageview:imageView))
         self.view.addSubview(imageView)
         addGestures(view:imageView)
     }
     
-    func addRemoveButton()-> UIButton{
+    func addRemoveButton(imageview:UIImageView)-> UIButton{
         let removeButton = UIButton()
         removeButton.addTarget(self, action: #selector(removeEmoji(sender:)), for: .allEvents)
-        removeButton.frame = CGRect(x: -5, y: -5, width: 20, height: 20)
+        removeButton.frame = CGRect(x:imageview.frame.width-20, y:-5 , width: 20, height: 20)
         removeButton.setImage(UIImage(named:"Clear"), for: .normal)
         removeButton.isHidden = true
         return removeButton
@@ -80,9 +80,8 @@ class ImageViewController: UIViewController {
         #if targetEnvironment(simulator)
         // your simulator code
         print("camera won't available in simulator")
-        let alert = UIAlertController(title: "Camera won't available in simulator", message: nil, preferredStyle:.alert )
-        alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        addAlertView(title: "Camera won't available in simulator", message:"", actionTitle: "ok")
+        
         #else
         // your real device code
         cameraPicker.sourceType = .camera
