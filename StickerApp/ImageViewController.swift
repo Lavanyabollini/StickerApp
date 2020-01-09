@@ -52,7 +52,7 @@ class ImageViewController: UIViewController {
     func addRemoveButton(imageview:UIImageView)-> UIButton{
         let removeButton = UIButton()
         removeButton.addTarget(self, action: #selector(removeEmoji(sender:)), for: .allEvents)
-        removeButton.frame = CGRect(x:imageview.frame.width-20, y:-7 , width: 20, height: 20)
+        removeButton.frame = CGRect(x:imageview.frame.width-20, y:-5 , width: 20, height: 20)
         removeButton.setImage(UIImage(named:"Clear"), for: .normal)
         removeButton.isHidden = true
         return removeButton
